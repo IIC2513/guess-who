@@ -50,7 +50,6 @@ img {
     img {
         display: none;
     }
-
     .board-div {
         grid-template-columns: repeat(3, 30%);
     }
