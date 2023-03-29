@@ -6,7 +6,6 @@ import UserWelcome from './UserWelcome'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <UserWelcome />
     <App />
   </React.StrictMode>,
 )
