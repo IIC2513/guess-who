@@ -1,6 +1,5 @@
 import Card from './Card'
 import './Board.css'
-import toast, { Toaster } from "react-hot-toast";
 import React, {createContext, useState, useEffect} from "react";
 
 export const GameContext = createContext(null);
@@ -21,10 +20,10 @@ export default function Board() {
 
   useEffect(() => {
     if (guess === opponentSelectionId) {
-      toast.success('Adivinaste correctamente!');
+      alert('Adivinaste correctamente!');
       setGuess(null);
     } else if (typeof guess === 'number') {
-      toast.error("No adivinaste uwu");
+      alert("No adivinaste uwu");
       setGuess(null);
     }
   }, [guess])
@@ -43,15 +42,6 @@ export default function Board() {
             ))}
         </div>
       </div>
-      <Toaster position='bottom-center' toastOptions={
-        {
-          style: {
-            background: '#191414',
-            color: 'white',
-            border: '1px solid #2e2c2c'
-          }
-        }
-      }/>
     </GameContext.Provider>
   )
 }
