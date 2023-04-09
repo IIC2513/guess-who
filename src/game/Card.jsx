@@ -4,7 +4,7 @@ import CardButton from './CardButton'
 
 export default function Card({imgSrc}){
     const [showImage, setShowImage] = useState(true);
-    const [guess, setGuess] = useState()
+
     const toggleImage =() => {
         setShowImage(!showImage);
     }
