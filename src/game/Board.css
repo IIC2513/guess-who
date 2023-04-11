@@ -1,0 +1,14 @@
+.board {
+    display: table;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.board-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.body {
+    background-color: #fff;
+}
