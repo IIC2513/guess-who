@@ -6,16 +6,16 @@ import UserWelcome from '../profile/UserWelcome'
 
 
 function Routing(){
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path={"/"} element={<App />}/>
-                <Route path={"/instructions"} element={<Instructions />}/>
-                <Route path={"/welcome"} element={<UserWelcome />}/>
-                <Route path={"/board"} element={<Board />}/>
-            </Routes>
-        </BrowserRouter>
-    )
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path={"/"} element={<App />}/>
+        <Route path={"/instructions"} element={<Instructions />}/>
+        <Route path={"/welcome"} element={<UserWelcome />}/>
+        <Route path={"/board"} element={<Board />}/>
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default Routing;
