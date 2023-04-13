@@ -1,12 +1,11 @@
 import './CardButton.css';
 
-export default function CardButton({onClick, showImage}){
+export default function CardButton({onClick, label}){
   return(
     <div>
       <button onClick={onClick}>
-        {showImage ? "Ocultar" : "Mostrar"}
+        {label}
       </button>
     </div>
-
   )
 }

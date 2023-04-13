@@ -17,6 +17,11 @@
     margin: 2px;
 }
 
+.card-actions {
+    display: flex;
+    gap: 10px;
+}
+
 .card img{
     height: 150px;
     padding: 1.5em;
