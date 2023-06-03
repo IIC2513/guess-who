@@ -3,16 +3,10 @@ import {useContext, useState} from 'react'
 import CardButton from './CardButton'
 import {GameContext} from "./Board.jsx";
 
-export default function Card({id, imgSrc}){
-  const [showImage, setShowImage] = useState(true);
+export default function Card({id, imgSrc, shown, toggle}){
   const {
-    guess,
     setGuess
   } = useContext(GameContext);
-
-  const toggleImage = () => {
-    setShowImage(!showImage);
-  }
 
   const handleGuess = () => {
     setGuess(id);
@@ -21,11 +15,11 @@ export default function Card({id, imgSrc}){
   return(
     <div className="card">
       <div className="card-container">
-        {showImage && <img src={imgSrc} className="img" alt="avatar"/>}
+        {shown && <img src={imgSrc} className="img" alt="avatar"/>}
       </div>
       <div className="card-actions">
-        <CardButton onClick={toggleImage} label={showImage ? "Ocultar" : "Mostrar"}/>
-        {showImage && <CardButton onClick={handleGuess} label={"Adivinar"}/>}
+        <CardButton onClick={() => toggle(id)} label={shown ? "Ocultar" : "Mostrar"}/>
+        {shown && <CardButton onClick={handleGuess} label={"Adivinar"}/>}
       </div>
     </div>
   )

@@ -7,9 +7,9 @@ export const GameContext = createContext(null);
 
 export default function Board() {
   const [guess, setGuess] = useState();
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState({});
   const [playerName, setPlayerName] = useState("");
-  console.log(playerName);
+
   // Hacemos la request inicial en el primer render
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_BACKEND_URL}/boards/boardData`)
@@ -27,6 +27,19 @@ export default function Board() {
         console.log(error);
       });
   }, [])
+
+  const toggleCharacter = (id) => {
+    axios.put(`${import.meta.env.VITE_BACKEND_URL}/characters/toggle/${id}`)
+      .then((response) => {
+        const characters = {...cards};
+        characters[id] = response.data;
+
+        setCards(characters);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const opponentSelectionId = 3;
 
@@ -50,9 +63,16 @@ export default function Board() {
       <h1 className="title">Tablero de {playerName}</h1>
       <div className="board">
          <div className="board-row">
-            {Object.values(cards).map(card => (
-                <Card key={card.id} imgSrc={card.image} id={card.id}/>
-            ))}
+            {Object.values(cards).map(card => 
+              (
+                <Card key={card.id}
+                  imgSrc={card.image}
+                  id={card.id}
+                  shown={!card.oculto}
+                  toggle={toggleCharacter}
+                />
+              )
+            )}
         </div>
       </div>
     </GameContext.Provider>
