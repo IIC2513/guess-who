@@ -29,16 +29,18 @@ export default function Board() {
   }, [])
 
   const toggleCharacter = (id) => {
-    axios.put(`${import.meta.env.VITE_BACKEND_URL}/characters/toggle/${id}`)
-      .then((response) => {
-        const characters = {...cards};
-        characters[id] = response.data;
+    axios.post(`${import.meta.env.VITE_BACKEND_URL}/characters/toggle`, {
+      characterId: id,
+    })
+    .then((response) => {
+      const characters = {...cards};
+      characters[id] = response.data;
 
-        setCards(characters);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      setCards(characters);
+    })
+  .catch((error) => {
+    console.log(error);
+  });
   };
 
   const opponentSelectionId = 3;
