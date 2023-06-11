@@ -1,7 +1,6 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 
 export default function UserWelcome() {
-
   const [nombre, setNombre] = useState(null);
 
   function handleChange(nombre) {

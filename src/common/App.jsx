@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './../assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import LogoutButton from '../profile/Logout'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -31,6 +32,12 @@ function App() {
       <a href='/welcome'>Ir a User Welcome</a>
       <a href='/instructions'>Ir a Instructions</a>
       <a href='/board'>Ir a Jugar</a>
+      <a href='/login'>Login</a>
+      <a href='/signup'>Registro</a>
+      <a href='/admincheck'>Chequeo Scope Admin</a>
+      <a href='/usercheck'>Chequeo Scope User</a>
+      <br></br>
+      <LogoutButton></LogoutButton>
     </div>
   )
 }

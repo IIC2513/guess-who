@@ -1,21 +1,24 @@
 import Card from './Card'
 import './Board.css'
-import React, {createContext, useState, useEffect} from "react";
+import React, {createContext, useContext , useState, useEffect} from "react";
 import axios from 'axios';
+import { AuthContext } from '../auth/AuthContext';
 
 export const GameContext = createContext(null);
 
 export default function Board() {
+  const { token } = useContext(AuthContext);
   const [guess, setGuess] = useState();
   const [cards, setCards] = useState({});
   const [playerName, setPlayerName] = useState("");
 
   // Hacemos la request inicial en el primer render
   useEffect(() => {
+    console.log(`Haciendo el request a ${import.meta.env.VITE_BACKEND_URL}/boards/boardData`);
     axios.get(`${import.meta.env.VITE_BACKEND_URL}/boards/boardData`)
       .then((response) => {
         const data = response.data[0];
-
+        
         const characters = {};
         data.Characters.map((character) => {
           characters[character.id] = character;
